@@ -1,6 +1,6 @@
 <?php
 $teams = file('database.txt', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
-var_dump($teams);
+
 if (isset($_POST['teamsToDelete'])) {
     if (is_array($_POST['teamsToDelete'])) {
         $teamsToDelete = $_POST['teamsToDelete'];

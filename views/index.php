@@ -45,8 +45,8 @@ $teams = file('database.txt', FILE_IGNORE_NEW_LINES|FILE_SKIP_EMPTY_LINES);
             <legend>Supprimer une équipe</legend>
             <?php foreach ($teams as $key => $team): ?>
             <div>
-                <label for="<?= $team ?>"><?= $team ?></label>
-                <input type="checkbox" value="<?= $team ?>" name="teamsToDelete[]">
+                <label for="<?= $key ?>"><?= $team ?></label>
+                <input type="checkbox" value="<?= $team ?>" id="<?= $key ?>" name="teamsToDelete[]">
             </div>
             <?php endforeach; ?>
             <input type="submit" value="Supprimer les équipes sélectionné">
