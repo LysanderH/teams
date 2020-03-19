@@ -1,7 +1,3 @@
-<?php
-$teams = file('database.txt', FILE_IGNORE_NEW_LINES|FILE_SKIP_EMPTY_LINES);
-//$teams = explode(PHP_EOL, $rawData);
-?>
 <!doctype html>
 <html lang="fr">
 <head>
@@ -24,8 +20,8 @@ $teams = file('database.txt', FILE_IGNORE_NEW_LINES|FILE_SKIP_EMPTY_LINES);
 <h1>Teams</h1>
 <?php if (!empty($teams)): ?>
     <ul>
-        <?php foreach ($teams as $key => $team): ?>
-            <li><?= $team ?></li>
+        <?php foreach ($teams as $team): ?>
+            <li><?= $team->name ?></li>
         <?php endforeach; ?>
     </ul>
 <?php else: ?>
@@ -43,10 +39,10 @@ $teams = file('database.txt', FILE_IGNORE_NEW_LINES|FILE_SKIP_EMPTY_LINES);
     <form action="/delete" method="post">
         <fieldset>
             <legend>Supprimer une équipe</legend>
-            <?php foreach ($teams as $key => $team): ?>
+            <?php foreach ($teams as $team): ?>
             <div>
-                <label for="<?= $key ?>"><?= $team ?></label>
-                <input type="checkbox" value="<?= $team ?>" id="<?= $key ?>" name="teamsToDelete[]">
+                <label for="<?= $team->id ?>"><?= $team->name ?></label>
+                <input type="checkbox" value="<?= $team->id ?>" id="<?= $team->id ?>" name="teamsToDelete[]">
             </div>
             <?php endforeach; ?>
             <input type="submit" value="Supprimer les équipes sélectionné">

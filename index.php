@@ -1,4 +1,9 @@
 <?php
+
+require 'bootstrap.php';
+
+$teams = $query->selectAllTeams();
+
 $request = $_SERVER['REQUEST_URI'];
 
 switch ($request) {
